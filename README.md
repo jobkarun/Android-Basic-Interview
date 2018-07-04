@@ -56,17 +56,74 @@ _________________________________________
 * What is the difference between Serializable and Parcelable?
 * What is the function of an intent filter?
 * What is a Sticky Intent?
-* What is a PendingIntent?
+* What is a PendingIntent?                                               
 
 ## Service
-* Service vs IntentService.
-* What is AIDL? Enumerate the steps in creating a bounded service through AIDL.Broadcast
-* What is a BroadcastReceiver? StackOverflow
-* What is a LocalBroadcastManager? Developer Android
-* What is a JobScheduler? Vogella
-* What is the support library? Why was it introduced?MartianCraft
-* What is a Content Provider and what is it typically used for?
-* What is Android Data Binding?
+
+   1.	  What is Service in android?
+       
+           Service is an application component that can perform long-running operations in the background, and it doesn't 
+           
+           provide a user interface.  
+           
+           Like -> handle network transactions, play music, perform file I/O etc.
+
+
+   2.	  What are the different types of Services?
+         
+           Android provide two types of Services:
+           
+           •started service->started service is a local service and sort term opration.
+           
+              it is stop itself stopSelf(). like, network   opration,image download,play music etc.
+              
+           •bound service-> bound service is remote service and ipc comunication like chat,aap in parchages.
+
+
+   3.	  Service Lifecycle
+   
+           • started service=>  call to->  startService() , onCreate(),onStartCommand,service is runing -> onDestroy()
+
+           • bound service=> call to->  bindService(), onCreate(),onBind(),
+           
+             service is runing ->as par as client requrement -> onUnbind()->onRebind()->onDestroy()
+
+   
+   
+   4.     Difference between Service vs IntentService.
+          
+          * Service
+                 •work on Main Thread
+                 •It is have method stopSelf() and stopService()
+
+          * IntentService
+                 •  work on Separate worker thread
+                 •  Multiple intents are queued on the same worker thread.
+                 •  onHandleIntent()
+
+          
+   5.     What is foreground Service?
+            
+            • Ans:Unless background service it will have more priority , 
+              by using setForeGround() method we can make it foreground service.
+          
+   6.     What is the significance of Sticky Intents in Services?
+
+            * START_STICKY   It is the system will try to re-create our application is kill.
+            
+            * START_NOT_STICKY  It is the system will not try to re-create our application is kill.
+            
+            * START_REDELIVER_INTENT  if the Intent is a re-delivery of a previously delivered intent,
+              because the service had previously returned
+
+          
+      
+   7.     What is a JobScheduler?
+   
+   
+   
+   
+         
 
 ## Persist Database
 
